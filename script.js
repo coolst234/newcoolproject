@@ -27,7 +27,7 @@ const letters = {
 function displayLetter(telegramUserId) {
     const letter = letters[telegramUserId];
     if (letter) {
-        greetingElement.textContent = `Привет, !`.replace('!', letter.greeting.split(',')[0]);
+        greetingElement.textContent = `!`.replace('!', letter.greeting.split(',')[0]);
         messageElement.textContent = letter.message;
         document.querySelector('.letter-bottom .date').textContent = `Отправлено: ${letter.date}`;
     } else {
