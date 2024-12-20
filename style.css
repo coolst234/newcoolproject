@@ -1,0 +1,316 @@
+:root {
+    --bg-color: #121212; /* Темный фон по умолчанию */
+    --text-color: #ffffff;
+    --letter-bg: #333333;
+    --letter-text: #f0f0f0;
+    --letter-border: #555555;
+    --letter-top-bg: #444444;
+    --letter-bottom-bg: #444444;
+    --seal-bg: #b33939;
+    --seal-border: #802424;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Geologica', sans-serif;
+    display: flex;
+    flex-direction: column; /* Для вертикального расположения секций */
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme {
+    --bg-color: #ffe8d6;
+    --text-color: #5c4033;
+    --letter-bg: #fffaf0;
+    --letter-text: #5c4033;
+    --letter-border: #d4c1ab;
+    --letter-top-bg: #f5ecd6;
+    --letter-bottom-bg: #f5ecd6;
+    --seal-bg: #e07a5f;
+    --seal-border: #bc4b51;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/letter_background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -2;
+}
+
+.app-header {
+    text-align: center;
+    padding: 30px 20px 0; /* Убираем нижний отступ, чтобы изображение прилегало */
+    margin-bottom: 0; /* Убираем отступ снизу */
+    position: relative; /* Для позиционирования стрелки */
+}
+
+.app-header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.app-header p {
+    font-size: 1.1em;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.header-divider {
+    display: block;
+    width: 100%;
+    height: auto; /* Или задайте фиксированную высоту, если нужно */
+    object-fit: cover; /* Чтобы изображение заполняло контейнер без искажений */
+    object-position: center;
+    margin-bottom: 30px; /* Добавьте отступ после изображения, если необходимо */
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Занимает всю ширину */
+}
+
+.letter-container {
+    position: relative;
+    background-color: var(--letter-bg);
+    color: var(--letter-text);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transform-origin: top center;
+    animation: openLetter 1.5s ease-in-out forwards;
+    border: 4px solid var(--letter-border);
+    width: 80%; /* Увеличенный размер */
+    max-width: 600px; /* Максимальная ширина */
+    margin-bottom: 30px; /* Отступ снизу */
+}
+
+@keyframes openLetter {
+    0% {
+        transform: scaleY(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.letter-top {
+    background-color: var(--letter-top-bg);
+    padding: 20px;
+    border-bottom: 2px dashed var(--letter-border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+}
+
+.letter-top i {
+    font-size: 1.5em; /* Размер иконки Font Awesome */
+    color: inherit; /* Наследует цвет текста */
+}
+
+.sender {
+    font-style: italic;
+}
+
+.letter-body {
+    padding: 30px;
+    background-color: inherit; /* Убран фоновый рисунок */
+}
+
+.letter-body h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: inherit;
+}
+
+.letter-body p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 1em;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    margin-top: 30px;
+    color: inherit;
+}
+
+.sign {
+    font-weight: bold;
+}
+
+.letter-bottom {
+    background-color: var(--letter-bottom-bg);
+    padding: 10px 20px;
+    border-top: 2px dashed var(--letter-border);
+    text-align: right;
+    font-size: 0.9em;
+    color: #aaa;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.seal {
+    position: absolute;
+    bottom: -40px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--seal-bg);
+    border-radius: 50%;
+    border: 4px solid var(--seal-border);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.greeting-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+.greeting-section img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+}
+
+.greeting-section h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#themeToggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    border: 1px solid #888;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+body.light-theme #themeToggle {
+    background-color: #eee;
+    color: #333;
+    border-color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Адаптация для маленьких экранов */
+@media (max-width: 600px) {
+    .app-header {
+        padding: 20px 10px;
+        margin-bottom: 10px;
+    }
+
+    .app-header h1 {
+        font-size: 2em;
+    }
+
+    .app-header p {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .letter-container {
+        width: 95%;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+
+    .letter-top {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .letter-top i {
+        font-size: 1.3em;
+    }
+
+    .letter-body {
+        padding: 20px;
+    }
+
+    .letter-body h2 {
+        font-size: 1.6em;
+    }
+
+    .letter-body p {
+        font-size: 0.9em;
+    }
+
+    .seal {
+        bottom: -30px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        font-size: 1em;
+    }
+
+    .greeting-section h1 {
+        font-size: 3em;
+    }
+
+    #themeToggle {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 15px 10px;
+        margin-top: 30px;
+        font-size: 0.8em;
+    }
+}
